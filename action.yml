@@ -1,0 +1,10 @@
+name: Probot Example
+description: "Example Action built with Probot"
+branding:
+  icon: "gift"
+  color: orange
+runs:
+  using: "node12"
+  main: "dist/index.js"
+© 2022 GitHub, Inc.
+Terms
