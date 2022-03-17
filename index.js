@@ -1,15 +1,12 @@
-const { run } = require('@probot/adapter-github-actions')
-const app = require("./app");
+/**
+ * @param {import('probot').Probot} app
+ */
+module.exports = (app) => {
+  app.log("Yay! The app was loaded!");
 
-const { createProbot } = require('probot');
-
-module.exports = (...handlers) => {
-  // Setup Probot app
-  const githubToken = process.env.GITHUB_TOKEN;
-  const probot = createProbot({ githubToken });
-  probot.setup(handlers);
-
-run(app).catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+  app.on("issues.opened", async (context) => {
+    return context.octokit.issues.createComment(
+      context.issue({ body: "Hello, World!" })
+    );
+  });
+};
