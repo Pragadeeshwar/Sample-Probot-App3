@@ -1,12 +1,5 @@
-/**
- * @param {import('probot').Probot} app
- */
-module.exports = (app) => {
-  app.log("Yay! The app was loaded!");
+const runProbot = require('@probot/adapter-github-actions');
 
-  app.on("issues.opened", async (context) => {
-    return context.octokit.issues.createComment(
-      context.issue({ body: "Hello, World!" })
-    );
-  });
-};
+const app = require('./index');
+
+runProbot(app);
