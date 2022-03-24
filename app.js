@@ -1,5 +1,7 @@
-const runProbot = require('@probot/adapter-github-actions');
-
+const { Probot, createProbot } = require("probot");
+const { createMyMiddleware } = require("my-probot-middleware")
 const app = require('./index');
 
-runProbot(app);
+module.exports = createMyMiddleware(app, {
+	probot: createProbot(),
+});
