@@ -3,18 +3,21 @@ name: Say Hello World
   issues:
     types:
       - opened
+   workflow dispatch:
+   
 jobs:
-  issuesOpened:
+  execute:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Sample Authentication
+        id: Appauth
+        uses: Pragadeeshwar/Sample-Probot-App3@master
         with:
-          cache: npm
-          node-version: 16
-      - run: npm ci
-      - run: npm run build
-      - uses: ./
+          privatekey:
+          appid: 181303
+          baseurl: https://github.com/Pragadeeshwar
+          installationid: 24182561
+      - uses: Pragadeeshwar/Sample-Probot-App3@master
+      - id: Sample-Probot-App3
         env:
-           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-           CI: false  
+           token: ${{steps.Appauth.outputs.token}}
