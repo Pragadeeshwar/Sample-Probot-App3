@@ -2,7 +2,7 @@ name: Say Hello World
 on:
   issues:
     types: opened
-   workflow_dispatch:
+  workflow_dispatch:
    
 jobs:
   execute:
