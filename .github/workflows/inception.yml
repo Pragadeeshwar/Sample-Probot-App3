@@ -12,7 +12,7 @@ jobs:
         id: Appauth
         uses: Pragadeeshwar/Sample-Probot-App3@master
         with:
-          privatekey:
+          privatekey: ${{secrets.APP_ID}}
           appid: 181303
           baseurl: https://github.com/Pragadeeshwar
           installationid: 24182561
