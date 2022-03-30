@@ -1,9 +1,8 @@
 name: Say Hello World
 on:
   issues:
-    types:
-      - opened
-    workflow dispatch:
+    types: opened
+   workflow_dispatch:
    
 jobs:
   execute:
@@ -18,6 +17,6 @@ jobs:
           baseurl: https://github.com/Pragadeeshwar
           installationid: 24182561
       - uses: Pragadeeshwar/Sample-Probot-App3@master
-      - id: Sample-Probot-App3
+        id: Sample-Probot-App3
         env:
            token: ${{steps.Appauth.outputs.token}}
